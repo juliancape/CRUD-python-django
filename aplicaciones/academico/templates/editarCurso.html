@@ -1,0 +1,33 @@
+{% extends "./base.html" %}
+
+{% block tittle %} Gestion de cursos  {%  endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4 "></div>
+        <h2>Edicion curso</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/edicionCurso/" method="POST">{% csrf_token %}
+                    <div class="form-group py-2">
+                        <input type="text" id="txtCodigo" name="txtCodigo" value="{{curso.codigo}}" class="form-control" placeholder="Codigo"
+                        minlength="6" maxlength="6" readonly required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtNombre" name="txtNombre" value="{{curso.nombre}}" class="form-control" placeholder="Nombre"
+                        maxlength="50" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="numCreditos" name="numCreditos" value="{{curso.creditos}}" class="form-control" placeholder="Creditos"
+                        min="0" max="9" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
